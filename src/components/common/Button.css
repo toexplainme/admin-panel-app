@@ -1,0 +1,96 @@
+.button {
+	display: flex;
+	align-items: center;
+    justify-content: center;
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	border-radius: 0.25rem;
+	color: #459DF5;
+	width: fit-content;
+}
+
+button:hover {
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.button .icon {
+	width: 0.75rem;
+	height: 0.75rem;
+}
+
+.button-large_solid .icon {
+	fill: #FFFFFF;
+	stroke: #FFFFFF;
+}
+
+.button-tiny_solid .icon {
+	fill: #FFFFFF;
+	stroke: #FFFFFF;
+}
+
+.button-large_transparent .icon {
+	fill: #459DF5;
+	stroke: #459DF5;
+}
+
+.button-large_transparent .icon {
+	fill: #459DF5;
+	stroke: #459DF5;
+}
+
+.button__text {
+	font-size: 0.8125rem;
+	display: block;
+	padding-left: 0.25rem;
+}
+
+.button-large_solid {
+	background-color: #459DF5;
+	padding: 0.5rem 1.25rem 0.5rem 1rem;
+	color: #FFFFFF;
+	height: 2rem;
+}
+
+.button-large_transparent {
+	height: 2rem;
+}
+  
+.button-tiny_solid {
+	background-color: #459DF5;
+	padding: 0.25rem 0.8rem 0.25rem 0.5rem;
+	color: #FFFFFF;
+}
+
+.button-tiny_solid-danger {
+	background-color: #F53152;
+	padding: 0.25rem 0.8rem 0.25rem 0.5rem;
+	color: #FFFFFF;
+}
+  
+.button-tiny_transparent {
+	padding: 0.5rem 1.25rem 0.5rem 1rem;
+	color: #459DF5;
+}
+  
+.button-tiny_transparent {
+	padding: 0.25rem 0.8rem 0.25rem 0.5rem;
+	color: #459DF5;
+}
+
+.button-tiny_solid-text_only {
+	padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+}
+
+.button-tiny_transparent-text_only {
+	padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+}
+
+.button-large_transparent-icon_only {
+	padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+}
+
+.button-large_transparent-icon_only .icon {
+	fill: #FFFFFF;
+	stroke: #FFFFFF;
+}

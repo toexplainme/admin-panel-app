@@ -1,0 +1,21 @@
+.panel__top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel__top .filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+}
+
+.panel__top .input_group__text {
+    width: 20rem;
+}
+
+.panel__top .button {
+    margin: 1rem 0rem 0 2rem;
+}

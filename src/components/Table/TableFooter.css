@@ -1,0 +1,46 @@
+.table__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+    width: 100%;
+    height: 2.5rem; 
+    background: #EBF0F5;
+    align-self: stretch;
+}
+.table__footer-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    margin-left: 1rem;
+}
+
+.table__footer-selected {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.813rem;
+    line-height: 1rem;
+    color: #459DF5;
+    margin-right: 0.5rem;
+}
+
+.button-tiny_solid-danger {
+    margin-left: 1rem;
+}
+
+.table__footer-pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right: 1rem;
+}
+
+.button-tiny_solid-text_only,
+.button-tiny_transparent-text_only {
+    margin-right: 0.5rem;
+}

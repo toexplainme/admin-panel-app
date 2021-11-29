@@ -1,0 +1,35 @@
+.right_side__table table {
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.right_side__table th {
+    background: #459DF5;
+    color: #EBF0F5;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.813rem;
+    text-align: left;
+    padding: 0.75rem 0.5rem;
+}
+
+.right_side__table th:hover {
+    background: #3D85D0;
+}
+
+.right_side__table td {
+    background: #FFFFFF;
+    color: #000000;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.813rem;
+    text-align: left;
+    padding: 0.75rem 0.5rem;
+}
+
+.right_side__table tr {
+    border-bottom: 0.063rem solid #EBF0F5;
+}
