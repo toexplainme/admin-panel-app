@@ -1,6 +1,7 @@
 import './PanelTop.css';
 import Input from '../common/Input';
 import Button from '../common/Button';
+import {actions, store} from '../../data'
 
 function PanelTop() {
   return (
@@ -11,6 +12,9 @@ function PanelTop() {
                     prefixClassName="hidden"
                     iconLeft="iconSearch"
                     placeholder="Номер заказа или ФИО"
+                    onChange={(event) => {
+                        store.dispatch(actions.ordersFilterSetOrderOrFioAction(event.currentTarget.value));
+                    }}
                 ></Input>
                 <Button 
                     className="button-large_solid"

@@ -2,8 +2,11 @@ import './PanelCollapsible.css';
 import Input from '../common/Input';
 import Button from '../common/Button';
 import PanelDropdown from './PanelDropdown';
+import {actions, store} from '../../data'
+import React from 'react';
 
-function PanelCollapsible() {
+class PanelCollapsible extends React.Component {
+  render() {
   return (
         <div className="panel__collapsible">
             <div className="interval">
@@ -15,23 +18,24 @@ function PanelCollapsible() {
                     iconRight="iconXmedium"
                     label="Дата оформления"
                     placeholder="ДД.ММ.ГГГГ"
+                    type="date"
+                    onChange={(event) => {
+                        store.dispatch(actions.ordersFilterSetDateFromAction(event.currentTarget.value));
+                    }}
                 ></Input>
                 <Input 
                     className="input__input_group-prefix"
                     prefixClassName="visible"
                     prefixLabel="по"
                     placeholder="ДД.ММ.ГГГГ"
+                    type="date"
                     iconRight="iconXmedium"
+                    onChange={(event) => {
+                        store.dispatch(actions.ordersFilterSetDateToAction(event.currentTarget.value));
+                    }}
                 ></Input>
             </div>
-            <div className="dropdown_input">
-                <Input 
-                    className="input__input_group-dropdown"
-                    label="Статус заказа"
-                    iconRight="iconVarrow"
-                ></Input>
-                <PanelDropdown></PanelDropdown>
-            </div>
+            <PanelDropdown></PanelDropdown>
             <div className="interval">
                 <Input 
                     className="input__input_group-prefix"
@@ -39,12 +43,18 @@ function PanelCollapsible() {
                     prefixLabel="от"
                     label="Сумма заказа"
                     iconRight="iconXmedium"
+                    onChange={(event) => {
+                        store.dispatch(actions.ordersFilterSetPriceFromAction(event.currentTarget.value));
+                    }}
                 ></Input>
                 <Input 
                     className="input__input_group-prefix"
                     prefixClassName="visible"
                     prefixLabel="до"
                     iconRight="iconXmedium"
+                    onChange={(event) => {
+                        store.dispatch(actions.ordersFilterSetPriceToAction(event.currentTarget.value));
+                    }}
                 ></Input>
             </div>
             <Button 
@@ -53,6 +63,7 @@ function PanelCollapsible() {
             ></Button>          
         </div>
   );
+}
 }
 
 export default PanelCollapsible;

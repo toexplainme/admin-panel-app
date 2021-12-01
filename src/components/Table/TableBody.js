@@ -1,7 +1,8 @@
 import './TableBody.css';
 import Checkbox from '../common/Checkbox';
 import React, { useState } from 'react';
-import Orders from '../../data/Orders.json'
+import Orders from '../../data/Orders.json';
+import { connect } from 'react-redux';
 
 import { ReactComponent as IconAbort    } from '../common/icons/abort.svg';
 import { ReactComponent as IconCheckmark} from '../common/icons/checkmark.svg';
@@ -23,7 +24,13 @@ const StatusIcon = {
     Отложен: <IconDot className="table__status_icon-delayed"/>,
 };
 
-function TableBody() {
+function TableBody({
+    filterOrderOrFio,
+    filterDateFrom,
+    filterDateTo,
+    filterStatus,
+    filterPriceFrom,
+    filterPriceTo, }) { 
     const [data, setdata] = useState(Orders)
     const [order, setorder] = useState("ASC")
     const sorting = (col) => {
@@ -54,14 +61,28 @@ function TableBody() {
                 <th>ФИО покупателя</th>
             </thead>
             <tbody>
-                {data.map((d)=>(
+
+            {data.filter((d) => (d.name.toLowerCase().includes(filterOrderOrFio.toLowerCase()) || d.id.toString().startsWith(filterOrderOrFio.toString())) &&
+
+                                (d.sum >= filterPriceFrom && d.sum <= filterPriceTo) &&
+
+                                ((new Date((d.created.split(',')[0]).split('.')[2], (d.created.split(',')[0]).split('.')[1]-1, (d.created.split(',')[0]).split('.')[0]) >=
+                                  new Date((filterDateFrom).split('-')[0], (filterDateFrom).split('-')[1]-1, (filterDateFrom).split('-')[2]) > 0) &&
+
+                                (new Date((d.created.split(',')[0]).split('.')[2], (d.created.split(',')[0]).split('.')[1]-1, (d.created.split(',')[0]).split('.')[0]) <=
+                                 new Date((filterDateTo).split('-')[0], (filterDateTo).split('-')[1]-1, (filterDateTo).split('-')[2]) > 0) &&
+                                  
+                                (filterStatus.includes(d.status.toLowerCase()))
+                                )
+                                ).map((d) => 
+                (
                     <tr key={d.id}>
                         <td><Checkbox/></td>
                         <td>{d.id}</td>
                         <td>{d.created}</td>
                         <td className={`table__status ${StatusClass[d.status]}`}>{StatusIcon[d.status]}{d.status}</td>
                         <td>{d.positions}</td>
-                        <td>{d.sum}</td>
+                        <td>{(d.sum !== '-') ? Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(d.sum) : d.sum}</td>
                         <td>{d.name}</td>
                     </tr>
                 ))
@@ -71,4 +92,17 @@ function TableBody() {
   );
 }
 
-export default TableBody;
+const mapStateToProps = function(state) {
+    //debugger
+    return {
+        filterOrderOrFio : state.filterReducer.filterOrderOrFio,
+        filterDateFrom   : state.filterReducer.filterDateFrom,
+        filterDateTo     : state.filterReducer.filterDateTo,
+        filterStatus     : state.filterReducer.filterStatus,
+        filterPriceFrom  : state.filterReducer.filterPriceFrom,
+        filterPriceTo    : state.filterReducer.filterPriceTo,
+    }
+
+}
+
+export default connect(mapStateToProps)(TableBody);
