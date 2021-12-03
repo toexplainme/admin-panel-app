@@ -2,7 +2,7 @@ import './PanelCollapsible.css';
 import Input from '../common/Input';
 import Button from '../common/Button';
 import PanelDropdown from './PanelDropdown';
-import {actions, store} from '../../data'
+import { actions, store } from '../../data'
 import React from 'react';
 
 class PanelCollapsible extends React.Component {

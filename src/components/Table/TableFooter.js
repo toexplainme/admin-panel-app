@@ -1,7 +1,7 @@
 import './TableFooter.css';
 import Button from '../common/Button';
 import TableFooterDropdown from './TableFooterDropdown';
-import React, { useState } from 'react';
+import React from 'react';
 
 function TableFooter() {
     return (

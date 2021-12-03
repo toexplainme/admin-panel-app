@@ -1,7 +1,11 @@
-import * as actions from './actions';
-import store from './store';
+import * as actions from './actions'
+import * as selectors from './selectors'
+import store from './store'
+import * as myColumn from './orders_table_column'
 
 export {
-    store, 
-    actions
+    store,
+    actions,
+    selectors,
+    myColumn,
 }

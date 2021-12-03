@@ -5,6 +5,7 @@ import { ordersFilterSetOrderOrFioAction } from './orders_filter_set_order_or_fi
 import { ordersFilterSetPriceFromAction } from './orders_filter_set_price_from'
 import { ordersFilterSetPriceToAction } from './orders_filter_set_price_to'
 import { ordersFilterSetStatusAction } from './orders_filter_set_status'
+import { ordersSortAction } from './orders_sort'
 
 export {
     ordersFilterClearAllAction,
@@ -14,4 +15,5 @@ export {
     ordersFilterSetPriceFromAction,
     ordersFilterSetPriceToAction,
     ordersFilterSetStatusAction,
+    ordersSortAction
 }

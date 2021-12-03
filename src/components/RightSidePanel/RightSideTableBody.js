@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import OrderDetails from '../../data/OrderDetails.json'
 
 function RightSideTableBody() {
-  const [data, setdata] = useState(OrderDetails)
+  const [data] = useState(OrderDetails)
   return (
         <table>
             <thead>
