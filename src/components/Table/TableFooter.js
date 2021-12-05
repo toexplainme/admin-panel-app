@@ -2,8 +2,16 @@ import './TableFooter.css';
 import Button from '../common/Button';
 import TableFooterDropdown from './TableFooterDropdown';
 import React from 'react';
+import { connect } from 'react-redux';
+import { actions, store } from '../../data'
+import { selectors } from "../../data";
 
-function TableFooter() {
+function TableFooter({ currentPage, ordersList, pagingSize }) {
+    
+    const ordersCount = ordersList.length
+    const totalPages = Math.ceil(ordersCount / pagingSize)
+    const Pages = [...Array(totalPages).keys()]
+
     return (
         <div className="table__footer">
             <div className="table__footer-left">
@@ -24,26 +32,15 @@ function TableFooter() {
                 <TableFooterDropdown/>
             </div>
             <div className="table__footer-pagination">
+                {Pages.map((page, index) => 
                 <Button 
-                        className="button-tiny_solid button-tiny_solid-text_only"
-                        text="1"
-                ></Button>
-                <Button 
-                        className="button-tiny_transparent button-tiny_transparent-text_only"
-                        text="2"
-                ></Button>
-                <Button 
-                        className="button-tiny_transparent button-tiny_transparent-text_only"
-                        text="3"
-                ></Button>
-                <Button 
-                        className="button-tiny_transparent button-tiny_transparent-text_only"
-                        text="..."
-                ></Button>
-                <Button 
-                        className="button-tiny_transparent button-tiny_transparent-text_only"
-                        text="18"
-                ></Button>
+                        key={index+1} 
+                        className={currentPage - 1 == page ? "button-tiny_solid button-tiny_solid-text_only" : "button-tiny_transparent button-tiny_transparent-text_only"}
+                        text={index+1} 
+                        onClick={() => {
+                                store.dispatch(actions.ordersPagingAction(page));
+                            }}
+                ></Button>)}
                 <div className="table__footer-pagination-last">
                     <Button 
                             className="button-tiny_transparent button-tiny_transparent-text_only"
@@ -55,4 +52,14 @@ function TableFooter() {
     );
 }
 
-export default TableFooter;
+const mapStateToProps = function(state) {
+    
+        return {
+                currentPage: selectors.getCurrentPage(state),
+                pagingSize: selectors.getPagingSize(state),
+                ordersList: selectors.getOrdersFiltered(state)
+        }
+    
+    }
+    
+export default connect(mapStateToProps)(TableFooter);

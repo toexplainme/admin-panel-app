@@ -1,11 +1,12 @@
-import { sortBy } from 'lodash'
+import { sortBy, slice } from 'lodash'
 import { getSortAscending, getSortColumn } from "./sort_selector";
+import { getCurrentPage, getPagingSize } from "./paging_selector";
 
 export function getOrdersList(appState) {   
     return appState.ordersListReducer.ordersList;
 }
 
-export function getResultOrders(appState) {
+export function getOrdersFiltered(appState) {
 
     const { 
         filterOrderOrFio,
@@ -14,9 +15,6 @@ export function getResultOrders(appState) {
         filterStatus,
         filterPriceFrom,
         filterPriceTo } = appState.filterReducer;
-
-    const column = getSortColumn(appState)
-    const ascending = getSortAscending(appState)
     
     let list = getOrdersList(appState)
 
@@ -35,6 +33,23 @@ export function getResultOrders(appState) {
         (filterStatus.includes(d.status.toLowerCase()))
         )
         )
+
+    return list
+}
+
+export function getResultOrders(appState) {
+
+    const column = getSortColumn(appState)
+    const ascending = getSortAscending(appState)
+    const currentPage = getCurrentPage(appState)
+    const pagingSize = getPagingSize(appState)
+    
+    let list = getOrdersFiltered(appState)
+
+    const skip = (currentPage - 1) * pagingSize
+    const take = pagingSize
+
+    list = slice(list, skip, skip + take)
 
     let newList = sortBy(list, column)
     if (!ascending) {

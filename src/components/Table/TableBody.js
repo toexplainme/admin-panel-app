@@ -69,7 +69,7 @@ function TableBody({ ordersList }) {
 }
 
 const mapStateToProps = function(state) {
-    
+
     return {
         ordersList: selectors.getResultOrders(state)
     }

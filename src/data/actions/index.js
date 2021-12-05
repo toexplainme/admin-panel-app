@@ -6,6 +6,7 @@ import { ordersFilterSetPriceFromAction } from './orders_filter_set_price_from'
 import { ordersFilterSetPriceToAction } from './orders_filter_set_price_to'
 import { ordersFilterSetStatusAction } from './orders_filter_set_status'
 import { ordersSortAction } from './orders_sort'
+import { ordersPagingAction } from './orders_paging'
 
 export {
     ordersFilterClearAllAction,
@@ -15,5 +16,6 @@ export {
     ordersFilterSetPriceFromAction,
     ordersFilterSetPriceToAction,
     ordersFilterSetStatusAction,
-    ordersSortAction
+    ordersSortAction,
+    ordersPagingAction
 }
