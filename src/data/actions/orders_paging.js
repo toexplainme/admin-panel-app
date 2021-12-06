@@ -1,4 +1,4 @@
-import {ORDERS_PAGING} from "../actions_types";
+import { ORDERS_PAGING } from "../actions_types";
 
 export function ordersPagingAction (newCurrentPage) {
     return {

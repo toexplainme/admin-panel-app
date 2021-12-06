@@ -40,7 +40,7 @@ function TableBody({ ordersList }) {
         return (
             <tr key={d.id}>
                 <td><Checkbox/></td>
-                <td>{d.id}</td>
+                <td className="table__order_id" onClick={()=>{store.dispatch(actions.ordersFormItemClickAction(d.created, d.status, d.name, d.id))}}>{d.id}</td>
                 <td>{d.created}</td>
                 <td className={`table__status ${StatusClass[d.status]}`}>{StatusIcon[d.status]}{d.status}</td>
                 <td>{d.positions}</td>

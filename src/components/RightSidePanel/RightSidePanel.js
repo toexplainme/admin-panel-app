@@ -3,8 +3,10 @@ import Button from '../common/Button';
 import './RightSidePanel.css';
 import RightSidePanelHeader from './RightSidePanelHeader';
 import RightSideTable from './RightSideTable'
+import { connect } from 'react-redux';
+import { selectors, actions, store } from "../../data";
 
-function RightSidePanel() {
+function RightSidePanel({ created, status, cName}) {
   return (
     <div className="right_side_panel">
       <RightSidePanelHeader/>
@@ -12,14 +14,19 @@ function RightSidePanel() {
           <Input 
             className="input__input_group-disabled"
             inputIconLeftClassName="hidden"
-            iconRight={5}
+            iconRight="iconLocked"
             label="Дата и время заказа"
+            value={created}
           ></Input>
           <Input 
             className="input__input_group-enabled"
             inputIconLeftClassName="hidden"
             inputIconRightClassName="hidden"
             label="ФИО покупателя"
+            value={cName}
+            onInput={(event) => {
+              store.dispatch(actions.ordersFormNameEditAction(event.currentTarget.value));
+            }}
           ></Input>
           <div className="right_side_panel__table">
             <RightSideTable/>
@@ -27,31 +34,48 @@ function RightSidePanel() {
           <Input 
             className="input__input_group-disabled"
             inputIconLeftClassName="hidden"
-            iconRight={5}
+            iconRight="iconLocked"
             label="Уровень лояльности"
           ></Input>
           <Input 
             className="input__input_group-dropdown"
             inputIconLeftClassName="hidden"
             label="Статус заказа"
-            iconRight={11} 
+            iconRight="iconVarrow"
+            value={status}
+            onInput={(event) => {
+              store.dispatch(actions.ordersFormStatusEditAction(event.currentTarget.value));
+            }}
           ></Input>
           <Input 
             className="input__input_group-enabled"
             inputIconLeftClassName="hidden"
             label="Код подтверждения"
-            iconRight={13} 
+            iconRight="iconXmedium"
           ></Input>
       </div>
       <div className="right_side_panel__footer">
         <Button 
           className="button-large_solid"
           text="Сохранить"
-          icon={2}
+          icon="iconCheckmark"
+          onClick={() => {
+            store.dispatch(actions.ordersFormSaveAction(created, status, cName));
+          }}
         ></Button>
       </div>
     </div>
   );
 }
 
-export default RightSidePanel;
+const mapStateToProps = function(state) {
+
+  return {
+      created: selectors.getCreated(state),
+      status: selectors.getStatus(state),
+      cName: selectors.getCName(state),
+  }
+
+}
+
+export default connect(mapStateToProps)(RightSidePanel);

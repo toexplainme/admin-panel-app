@@ -22,12 +22,12 @@ function TableFooter({ currentPage, ordersList, pagingSize }) {
                 <Button 
                         className="button-tiny_solid"
                         text="Изменить статус"
-                        icon={7}
+                        icon="iconPencil"
                 ></Button>
                 <Button 
                         className="button-tiny_solid button-tiny_solid-danger"
                         text="Удалить"
-                        icon={1}
+                        icon="iconBin"
                 ></Button>
                 <TableFooterDropdown/>
             </div>
