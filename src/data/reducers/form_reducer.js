@@ -20,7 +20,7 @@ export function formReducer (initialState = initState, action) {
                 created, 
                 status, 
                 cName,
-                orderId
+                orderId,
             }
         }
 

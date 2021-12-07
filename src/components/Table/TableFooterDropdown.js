@@ -1,7 +1,9 @@
+import React, { useState } from 'react';
 import './TableFooterDropdown.css';
 import Button from '../common/Button';
 
 function TableFooterDropdown() {
+
   return (
     <div className="dropdown">
       <span className="dropdown__label">Удалить n записей?</span>

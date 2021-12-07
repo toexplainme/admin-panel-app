@@ -4,6 +4,11 @@
     border-collapse: collapse;
 }
 
+.table__order_id:hover {
+    color: #459DF5;
+    cursor: pointer;
+}
+
 .table th {
     background: #459DF5;
     color: #EBF0F5;
@@ -17,7 +22,7 @@
 
 .table th:first-child {
     padding: 0.75rem 0.5rem 0.75rem 1rem;
-    max-width: 0rem;
+    min-width: 2rem;
 }
 
 .table th:hover {

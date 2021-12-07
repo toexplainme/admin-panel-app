@@ -1,13 +1,14 @@
+import React, { useState } from 'react';
 import './TableFooter.css';
 import Button from '../common/Button';
 import TableFooterDropdown from './TableFooterDropdown';
-import React from 'react';
 import { connect } from 'react-redux';
 import { actions, store } from '../../data'
 import { selectors } from "../../data";
 
 function TableFooter({ currentPage, ordersList, pagingSize }) {
     
+    const [isActive, setActive] = useState(false)
     const ordersCount = ordersList.length
     const totalPages = Math.ceil(ordersCount / pagingSize)
     const Pages = [...Array(totalPages).keys()]
@@ -28,8 +29,9 @@ function TableFooter({ currentPage, ordersList, pagingSize }) {
                         className="button-tiny_solid button-tiny_solid-danger"
                         text="Удалить"
                         icon="iconBin"
+                        onClick = {() => setActive(!isActive)}
                 ></Button>
-                <TableFooterDropdown/>
+                {isActive && <TableFooterDropdown/>}
             </div>
             <div className="table__footer-pagination">
                 {Pages.map((page, index) => 

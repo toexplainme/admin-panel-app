@@ -4,8 +4,9 @@
   padding: 3rem;
 }
 
-.hidden {
-	display: none;
+.hidden,
+.deactive {
+	display: none !important;
 }
   
 input[type="date"]::-webkit-inner-spin-button,

@@ -24,6 +24,9 @@ function PanelTop() {
                 <Button 
                     className="button-large_transparent"
                     text="Сбросить фильтры"
+                    onClick={() => {
+                        store.dispatch(actions.ordersFilterClearAllAction());
+                    }}
                 ></Button>
             </div>
             <Button 

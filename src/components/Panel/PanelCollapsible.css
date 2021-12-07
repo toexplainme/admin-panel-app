@@ -1,6 +1,7 @@
 .panel__collapsible {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     background: #EBF0F5;
     border-radius: 0.5rem;
@@ -10,6 +11,7 @@
 .panel__collapsible .interval {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     width: 17.6rem;

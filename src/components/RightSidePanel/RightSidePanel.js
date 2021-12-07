@@ -6,9 +6,9 @@ import RightSideTable from './RightSideTable'
 import { connect } from 'react-redux';
 import { selectors, actions, store } from "../../data";
 
-function RightSidePanel({ created, status, cName}) {
+function RightSidePanel({ created, status, cName, orderId, isExpanded }) {
   return (
-    <div className="right_side_panel">
+    <div className="right_side_panel" style={{right:isExpanded ? 0 : '-30rem'}}>
       <RightSidePanelHeader/>
       <div className="right_side_panel__body">
           <Input 
@@ -24,7 +24,7 @@ function RightSidePanel({ created, status, cName}) {
             inputIconRightClassName="hidden"
             label="ФИО покупателя"
             value={cName}
-            onInput={(event) => {
+            onChange={(event) => {
               store.dispatch(actions.ordersFormNameEditAction(event.currentTarget.value));
             }}
           ></Input>
@@ -43,7 +43,7 @@ function RightSidePanel({ created, status, cName}) {
             label="Статус заказа"
             iconRight="iconVarrow"
             value={status}
-            onInput={(event) => {
+            onChange={(event) => {
               store.dispatch(actions.ordersFormStatusEditAction(event.currentTarget.value));
             }}
           ></Input>
@@ -60,7 +60,7 @@ function RightSidePanel({ created, status, cName}) {
           text="Сохранить"
           icon="iconCheckmark"
           onClick={() => {
-            store.dispatch(actions.ordersFormSaveAction(created, status, cName));
+            store.dispatch(actions.ordersFormSaveAction({ created, status, cName, orderId }));
           }}
         ></Button>
       </div>
@@ -74,6 +74,8 @@ const mapStateToProps = function(state) {
       created: selectors.getCreated(state),
       status: selectors.getStatus(state),
       cName: selectors.getCName(state),
+      orderId: selectors.getOrderId(state),
+      isExpanded: selectors.getIsExpandedForm(state),
   }
 
 }

@@ -6,6 +6,10 @@ export function getOrdersList(appState) {
     return appState.ordersListReducer.ordersList;
 }
 
+export function getIsExpandedForm (appState) {
+    return appState.ordersListReducer.isExpandedForm
+}
+
 export function getOrdersFiltered(appState) {
 
     const { 
