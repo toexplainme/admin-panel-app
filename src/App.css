@@ -1,0 +1,16 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+.App {
+  padding: 3rem;
+}
+
+.hidden,
+.deactive {
+	display: none !important;
+}
+  
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}

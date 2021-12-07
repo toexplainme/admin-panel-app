@@ -1,0 +1,92 @@
+.table table {
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.table__order_id:hover {
+    color: #459DF5;
+    cursor: pointer;
+}
+
+.table th {
+    background: #459DF5;
+    color: #EBF0F5;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.813rem;
+    text-align: left;
+    padding: 0.75rem 0.5rem;
+}
+
+.table th:first-child {
+    padding: 0.75rem 0.5rem 0.75rem 1rem;
+    min-width: 2rem;
+}
+
+.table th:hover {
+    background: #3D85D0;
+}
+
+.table td {
+    background: #FFFFFF;
+    color: #000000;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.813rem;
+    text-align: left;
+    padding: 0.75rem 0.5rem;
+}
+
+.table tr {
+    border-bottom: 0.063rem solid #EBF0F5;
+}
+
+.table td:first-child {
+    padding: 0.75rem 0.5rem 0.75rem 1rem;
+    max-width: 0rem;
+}
+
+.table__status {
+    display: flex;
+    line-height: 1rem;
+}
+
+.table__status_icon-new,
+.table__status_icon-delayed  {
+    width: 1rem;
+    height: 1rem;
+    fill: #FF8C56;
+    padding-right: 0.25rem;
+}
+
+.table__status_icon-inprogress {
+    width: 1rem;
+    height: 1rem;
+    fill: #459DF5;
+    padding-right: 0.25rem;
+}
+
+.table__status_icon-done {
+    width: 1rem;
+    height: 1rem;
+    fill: #0FB864;
+    padding-right: 0.25rem;
+}
+
+.table__status_icon-canceled {
+    width: 1rem;
+    height: 1rem;
+    stroke: #A8A8A8;
+    padding-right: 0.25rem;
+}
+
+.table__status-done {
+    color: #0FB864;
+}
+
+.table__status-canceled {
+    color: #A8A8A8;
+}

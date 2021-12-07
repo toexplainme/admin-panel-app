@@ -1,0 +1,29 @@
+.table__footer .dropdown {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+	padding: 1rem;
+    width: 9rem;
+    height: 6rem;
+    background:#FFFFFF;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1),
+      0 0.25rem 0.5rem rgba(0, 0, 0, 0.1),
+      0 0.125rem 0.125rem rgba(0, 0, 0, 0.1);
+	border-radius: 0.5rem;
+    position: sticky;
+    margin-bottom: 9.75rem;
+    margin-left: -5.25rem;
+}
+
+.dropdown .button {
+    width: 100%;
+}
+
+.dropdown__label {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.813rem;
+    line-height: 1rem;
+}

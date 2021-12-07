@@ -1,0 +1,24 @@
+.right_side_panel__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 30rem;
+    height: 3.5rem;
+    background: #459DF5;
+}
+
+.right_side_panel__header_title {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.625rem;
+    line-height: 2rem;
+    letter-spacing: -0.013rem;
+    color: #BAD8F5;
+    margin-left: 1rem;
+}
+
+.right_side_panel__header .button-large_transparent-icon_only {
+    margin-right: 1rem;
+}

@@ -1,0 +1,30 @@
+.panel__collapsible {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    background: #EBF0F5;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.panel__collapsible .interval {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 17.6rem;
+}
+
+.panel__collapsible .interval .input_group__text {
+    width: 8.875rem;
+}
+
+.panel__collapsible .dropdown_input {
+    margin: 0 1.5rem;
+}
+
+.panel__collapsible .button {
+    margin: 1rem 0rem 0 2rem;
+}
